@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/simple UI & icons/box/box_ID_PW.png.meta
 guid: dbc49de063591e741821707087728b4e
+========
+guid: c65da71492cf04f57ac42a70b527589c
+>>>>>>>> Stashed changes:Assets/Materials/GUI-Kit-Pack-Free_01.png.meta
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}

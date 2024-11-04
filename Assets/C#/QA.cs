@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class QA : MonoBehaviour
 {
-    public GameObject TextBox;
-    public GameObject ChoiceA;
-    public GameObject ChoiceB;
-    public GameObject ChoiceC;
-    public GameObject ChoiceD;
+    [SerializeField] GameObject TextBox;
+    [SerializeField] GameObject ChoiceA;
+    [SerializeField] Text ChoiceAText;
+    [SerializeField] GameObject ChoiceB;
+    [SerializeField] Text ChoiceBText;
+    [SerializeField] GameObject ChoiceC;
+    [SerializeField] Text ChoiceCText;
+    [SerializeField] GameObject ChoiceD;
+    [SerializeField] Text ChoiceDText;
     public int choice;
 
     public void choseA () {
@@ -33,20 +37,24 @@ public class QA : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    //void Start()
-    //{
-        
-    //}
+    void Start()
+    {
+        TextBox.GetComponent<Text>().text = "Question Text Goes Here";
+        ChoiceA.SetActive(true);
+        ChoiceB.SetActive(true);
+        ChoiceC.SetActive(true);
+        ChoiceD.SetActive(true);
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (choice >= 1) {
+        /*if (choice >= 1) {
             ChoiceA.SetActive(false);
             ChoiceB.SetActive(false);
             ChoiceC.SetActive(false);
             ChoiceD.SetActive(false);
 
-        }
+        }*/
     }
 }

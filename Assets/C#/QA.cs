@@ -38,7 +38,7 @@ public class QA : MonoBehaviour
     {
         QuizPanel.SetActive(false);
         GOPanel.SetActive(true);
-        sText.text = score + "/" +totalQ;
+        sText.text = "Congratulations quiz crusher! You accuracy is: " + score + "/" +totalQ;
     }
 
     // Update is called once per frame

@@ -1140,7 +1140,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -71}
-  m_SizeDelta: {x: 80, y: 100}
+  m_SizeDelta: {x: 75, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &829831937
 MonoBehaviour:
@@ -1685,9 +1685,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 978436561}
-        m_TargetAssemblyTypeName: AnswerScript, Assembly-CSharp
-        m_MethodName: Answer
+      - m_Target: {fileID: 998331360}
+        m_TargetAssemblyTypeName: QA, Assembly-CSharp
+        m_MethodName: reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1844,7 +1844,11 @@ MonoBehaviour:
   - {fileID: 388088821}
   - {fileID: 1107158590}
   currentQuestion: 0
+  QuizPanel: {fileID: 1532626442}
+  GOPanel: {fileID: 1761596086}
   qText: {fileID: 694012467}
+  sText: {fileID: 509203833}
+  score: 0
 --- !u!4 &998331361
 Transform:
   m_ObjectHideFlags: 0
@@ -2212,7 +2216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1761596087}
   m_Layer: 5
-  m_Name: BG
+  m_Name: GOPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

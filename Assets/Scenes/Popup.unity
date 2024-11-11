@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 45636246}
   - component: {fileID: 45636245}
   - component: {fileID: 45636244}
+  - component: {fileID: 45636247}
   m_Layer: 5
   m_Name: ButtonA
   m_TagString: Untagged
@@ -206,9 +207,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 998331360}
-        m_TargetAssemblyTypeName: QA, Assembly-CSharp
-        m_MethodName: choseA
+      - m_Target: {fileID: 45636247}
+        m_TargetAssemblyTypeName: AnswerScript, Assembly-CSharp
+        m_MethodName: Answer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -256,6 +257,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45636242}
   m_CullTransparentMesh: 1
+--- !u!114 &45636247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45636242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a619a2910c14f4524b9a163688ddf2c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  qa: {fileID: 998331360}
 --- !u!1 &47880204
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +516,7 @@ GameObject:
   - component: {fileID: 388088825}
   - component: {fileID: 388088824}
   - component: {fileID: 388088823}
+  - component: {fileID: 388088826}
   m_Layer: 5
   m_Name: ButtonC
   m_TagString: Untagged
@@ -572,9 +588,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 998331360}
-        m_TargetAssemblyTypeName: QA, Assembly-CSharp
-        m_MethodName: choseC
+      - m_Target: {fileID: 388088826}
+        m_TargetAssemblyTypeName: AnswerScript, Assembly-CSharp
+        m_MethodName: Answer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -622,6 +638,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388088821}
   m_CullTransparentMesh: 1
+--- !u!114 &388088826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388088821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a619a2910c14f4524b9a163688ddf2c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  qa: {fileID: 998331360}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +884,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: C
+  m_Text: Click to start
 --- !u!222 &803941768
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -933,7 +963,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: D
+  m_Text: Click to start
 --- !u!222 &878499730
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1144,7 +1174,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A
+  m_Text: Click to start
 --- !u!222 &943121984
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1299,16 +1329,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801b2bd7833004289973762e42ec7435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextBox: {fileID: 694012465}
-  ChoiceA: {fileID: 45636242}
-  ChoiceAText: {fileID: 694012467}
-  ChoiceB: {fileID: 1869350590}
-  ChoiceBText: {fileID: 1586571585}
-  ChoiceC: {fileID: 388088821}
-  ChoiceCText: {fileID: 803941767}
-  ChoiceD: {fileID: 1107158590}
-  ChoiceDText: {fileID: 878499729}
-  choice: 0
+  QnA:
+  - Question: What is your name?
+    Answers:
+    - Erin
+    - Chia
+    - Jake
+    - Song
+    CorrectAnswer: 4
+  - Question: What day is it today?
+    Answers:
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    CorrectAnswer: 1
+  - Question: What's the name of this game?
+    Answers:
+    - Stardew Valley
+    - SeaTrash Tycoon
+    - Fishing
+    - Fortnight
+    CorrectAnswer: 2
+  - Question: Approximately how many tons of plastic enter the ocean every year?
+    Answers:
+    - 1 million
+    - 5 million
+    - 8 million
+    - 12 million
+    CorrectAnswer: 3
+  - Question: How long does it take for a plastic bottle to fully decompose in the
+      ocean?
+    Answers:
+    - 10 years
+    - 50 years
+    - 200 years
+    - 450 years
+    CorrectAnswer: 4
+  - Question: What are microplastics?
+    Answers:
+    - 'Tiny plastic particles smaller than 5mm '
+    - Plastic pieces larger than a bottle cap
+    - 'Plastic only found in deep-sea environments '
+    - Natural materials mistaken for plastic
+    CorrectAnswer: 1
+  - Question: Which of the following is a major source of plastic waste entering
+      the ocean?
+    Answers:
+    - Industrial spills
+    - Road runoff
+    - Tourists leaving trash
+    - Fishing nets
+    CorrectAnswer: 4
+  - Question: What percentage of seabirds are estimated to have ingested plastic
+      at some point in their lives?
+    Answers:
+    - 10%
+    - 30%
+    - 60%
+    - 90%
+    CorrectAnswer: 4
+  - Question: How does plastic pollution affect coral reefs?
+    Answers:
+    - It provides shelter for fish
+    - It helps the reef grow faster
+    - It blocks sunlight and introduces harmful bacteria
+    - It has no effect on coral reefs
+    CorrectAnswer: 3
+  - Question: What is the Great Pacific Garbage Patch?
+    Answers:
+    - A coral reef full of plastic
+    - A region of the ocean with concentrated floating plastic debris
+    - An underwater volcano where plastic melts
+    - A fishing area known for capturing plastic waste
+    CorrectAnswer: 2
+  options:
+  - {fileID: 45636242}
+  - {fileID: 1869350590}
+  - {fileID: 388088821}
+  - {fileID: 1107158590}
+  currentQuestion: 0
+  qText: {fileID: 694012467}
 --- !u!4 &998331361
 Transform:
   m_ObjectHideFlags: 0
@@ -1335,6 +1436,7 @@ GameObject:
   - component: {fileID: 1107158594}
   - component: {fileID: 1107158593}
   - component: {fileID: 1107158592}
+  - component: {fileID: 1107158595}
   m_Layer: 5
   m_Name: ButtonD
   m_TagString: Untagged
@@ -1406,9 +1508,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 998331360}
-        m_TargetAssemblyTypeName: QA, Assembly-CSharp
-        m_MethodName: choseD
+      - m_Target: {fileID: 1107158595}
+        m_TargetAssemblyTypeName: AnswerScript, Assembly-CSharp
+        m_MethodName: Answer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1456,6 +1558,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107158590}
   m_CullTransparentMesh: 1
+--- !u!114 &1107158595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107158590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a619a2910c14f4524b9a163688ddf2c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  qa: {fileID: 998331360}
 --- !u!1 &1532626442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,7 +1679,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: B
+  m_Text: Click to start
 --- !u!222 &1586571586
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1584,6 +1700,7 @@ GameObject:
   - component: {fileID: 1869350594}
   - component: {fileID: 1869350593}
   - component: {fileID: 1869350592}
+  - component: {fileID: 1869350595}
   m_Layer: 5
   m_Name: ButtonB
   m_TagString: Untagged
@@ -1655,9 +1772,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 998331360}
-        m_TargetAssemblyTypeName: QA, Assembly-CSharp
-        m_MethodName: choseB
+      - m_Target: {fileID: 1869350595}
+        m_TargetAssemblyTypeName: AnswerScript, Assembly-CSharp
+        m_MethodName: Answer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1705,6 +1822,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869350590}
   m_CullTransparentMesh: 1
+--- !u!114 &1869350595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869350590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a619a2910c14f4524b9a163688ddf2c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  qa: {fileID: 998331360}
 --- !u!1 &1999817102
 GameObject:
   m_ObjectHideFlags: 0

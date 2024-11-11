@@ -1,60 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class QA : MonoBehaviour
 {
-    [SerializeField] GameObject TextBox;
-    [SerializeField] GameObject ChoiceA;
-    [SerializeField] Text ChoiceAText;
-    [SerializeField] GameObject ChoiceB;
-    [SerializeField] Text ChoiceBText;
-    [SerializeField] GameObject ChoiceC;
-    [SerializeField] Text ChoiceCText;
-    [SerializeField] GameObject ChoiceD;
-    [SerializeField] Text ChoiceDText;
-    public int choice;
+    public List<QuestionsAnswers> QnA;
+    public GameObject[] options;
+    public int currentQuestion;
 
-    public void choseA () {
-        TextBox.GetComponent<Text>().text = "You have chosen A.";
-        choice = 1;
-    }
+    public Text qText;
 
-    public void choseB () {
-        TextBox.GetComponent<Text>().text = "You have chosen B.";
-        choice = 2;
-    }
-
-    public void choseC () {
-        TextBox.GetComponent<Text>().text = "You have chosen C.";
-        choice = 3;
-    }
-
-    public void choseD () {
-        TextBox.GetComponent<Text>().text = "You have chosen D.";
-        choice = 4;
-    }
-
+    
     // Start is called before the first frame update
     void Start()
     {
-        TextBox.GetComponent<Text>().text = "Question Text Goes Here";
-        ChoiceA.SetActive(true);
-        ChoiceB.SetActive(true);
-        ChoiceC.SetActive(true);
-        ChoiceD.SetActive(true);
+        generateQuestion();
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if (choice >= 1) {
-            ChoiceA.SetActive(false);
-            ChoiceB.SetActive(false);
-            ChoiceC.SetActive(false);
-            ChoiceD.SetActive(false);
+        
+    }
 
-        }*/
+    public void correct()
+    {
+        QnA.RemoveAt(currentQuestion);
+        generateQuestion();
+    }
+
+    void setAnswers()
+    {
+        for (int i = 0;  i < options.Length; i++)
+        {
+            options[i].GetComponent<AnswerScript>().isCorrect = false;
+            options[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i]; 
+
+            if(QnA[currentQuestion].CorrectAnswer == i+1)
+            {
+                options[i].GetComponent<AnswerScript>().isCorrect = true;
+            }        
+        }
+    }
+
+    void generateQuestion()
+    {
+        currentQuestion = Random.Range(0, QnA.Count);
+        qText.text = QnA[currentQuestion].Question;
+        setAnswers();
     }
 }
+

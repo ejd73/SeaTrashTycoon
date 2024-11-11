@@ -17,7 +17,7 @@ public class AnswerScript : MonoBehaviour
         } else 
         {
             Debug.Log("InCorrect");
-            qa.correct();
+            qa.wrong();
         }
     }
 }

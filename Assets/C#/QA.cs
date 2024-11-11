@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class QA : MonoBehaviour
 {
@@ -11,13 +12,33 @@ public class QA : MonoBehaviour
     public GameObject[] options;
     public int currentQuestion;
 
-    public Text qText;
+    public GameObject QuizPanel;
+    public GameObject GOPanel;
 
+    public Text qText;
+    public Text sText;
+
+    int totalQ = 0;
+    public int score;
     
     // Start is called before the first frame update
     void Start()
     {
+        totalQ = QnA.Count;
+        GOPanel.SetActive(false);
         generateQuestion();
+    }
+
+    public void reset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void GameOver()
+    {
+        QuizPanel.SetActive(false);
+        GOPanel.SetActive(true);
+        sText.text = score + "/" +totalQ;
     }
 
     // Update is called once per frame
@@ -28,8 +49,16 @@ public class QA : MonoBehaviour
 
     public void correct()
     {
+        score += 1;
         QnA.RemoveAt(currentQuestion);
         generateQuestion();
+    }
+
+    public void wrong()
+    {
+        QnA.RemoveAt(currentQuestion);
+        generateQuestion();
+
     }
 
     void setAnswers()
@@ -55,6 +84,7 @@ public class QA : MonoBehaviour
             setAnswers();
         } else {
             Debug.Log("Out of questions");
+            GameOver();
         }
     }
 }

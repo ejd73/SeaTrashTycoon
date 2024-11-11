@@ -48,9 +48,14 @@ public class QA : MonoBehaviour
 
     void generateQuestion()
     {
-        currentQuestion = Random.Range(0, QnA.Count);
-        qText.text = QnA[currentQuestion].Question;
-        setAnswers();
+        if(QnA.Count > 0)
+        {
+            currentQuestion = Random.Range(0, QnA.Count);
+            qText.text = QnA[currentQuestion].Question;
+            setAnswers();
+        } else {
+            Debug.Log("Out of questions");
+        }
     }
 }
 

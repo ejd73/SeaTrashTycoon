@@ -1,91 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class QA : MonoBehaviour
 {
-    public List<QuestionsAnswers> QnA;
-    public GameObject[] options;
-    public int currentQuestion;
+    [SerializeField] GameObject TextBox;
+    [SerializeField] GameObject ChoiceA;
+    [SerializeField] Text ChoiceAText;
+    [SerializeField] GameObject ChoiceB;
+    [SerializeField] Text ChoiceBText;
+    [SerializeField] GameObject ChoiceC;
+    [SerializeField] Text ChoiceCText;
+    [SerializeField] GameObject ChoiceD;
+    [SerializeField] Text ChoiceDText;
+    public int choice;
 
-    public GameObject QuizPanel;
-    public GameObject GOPanel;
+    public void choseA () {
+        TextBox.GetComponent<Text>().text = "You have chosen A.";
+        choice = 1;
+    }
 
-    public Text qText;
-    public Text sText;
+    public void choseB () {
+        TextBox.GetComponent<Text>().text = "You have chosen B.";
+        choice = 2;
+    }
 
-    int totalQ = 0;
-    public int score;
-    
+    public void choseC () {
+        TextBox.GetComponent<Text>().text = "You have chosen C.";
+        choice = 3;
+    }
+
+    public void choseD () {
+        TextBox.GetComponent<Text>().text = "You have chosen D.";
+        choice = 4;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        totalQ = QnA.Count;
-        GOPanel.SetActive(false);
-        generateQuestion();
-    }
-
-    public void reset()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    void GameOver()
-    {
-        QuizPanel.SetActive(false);
-        GOPanel.SetActive(true);
-        sText.text = "Congratulations quiz crusher! You accuracy is: " + score + "/" +totalQ;
+        TextBox.GetComponent<Text>().text = "Question Text Goes Here";
+        ChoiceA.SetActive(true);
+        ChoiceB.SetActive(true);
+        ChoiceC.SetActive(true);
+        ChoiceD.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        /*if (choice >= 1) {
+            ChoiceA.SetActive(false);
+            ChoiceB.SetActive(false);
+            ChoiceC.SetActive(false);
+            ChoiceD.SetActive(false);
 
-    public void correct()
-    {
-        score += 1;
-        QnA.RemoveAt(currentQuestion);
-        generateQuestion();
-    }
-
-    public void wrong()
-    {
-        QnA.RemoveAt(currentQuestion);
-        generateQuestion();
-
-    }
-
-    void setAnswers()
-    {
-        for (int i = 0;  i < options.Length; i++)
-        {
-            options[i].GetComponent<AnswerScript>().isCorrect = false;
-            options[i].transform.GetChild(0).GetComponent<Text>().text = QnA[currentQuestion].Answers[i]; 
-
-            if(QnA[currentQuestion].CorrectAnswer == i+1)
-            {
-                options[i].GetComponent<AnswerScript>().isCorrect = true;
-            }        
-        }
-    }
-
-    void generateQuestion()
-    {
-        if(QnA.Count > 0)
-        {
-            currentQuestion = Random.Range(0, QnA.Count);
-            qText.text = QnA[currentQuestion].Question;
-            setAnswers();
-        } else {
-            Debug.Log("Out of questions");
-            GameOver();
-        }
+        }*/
     }
 }
-

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5604575417319406087}
   - component: {fileID: -3937113995933110227}
   - component: {fileID: 1479546112930284935}
+  - component: {fileID: 1802119149440464410}
   m_Layer: 0
   m_Name: forage_all_6
   m_TagString: Untagged
@@ -110,3 +111,16 @@ CapsuleCollider:
   m_Height: 0.22468816
   m_Direction: 1
   m_Center: {x: 0, y: 0.012344077, z: 0}
+--- !u!114 &1802119149440464410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3021542844226864423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a850b30cc5e024b7f91676fc8cb370e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelProgress: {fileID: 0}

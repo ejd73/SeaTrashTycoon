@@ -313,7 +313,7 @@ MonoBehaviour:
     to restore balance to nature by cleaning the beaches and rescuing the ocean's
     precious inhabitants.\n\nGather allies, remove the waste, and free the creatures
     in distress. Every piece of trash you collect brings the ocean one step closer
-    to recovery."
+    to recovery.\n\nExtra text"
 --- !u!222 &60140093
 CanvasRenderer:
   m_ObjectHideFlags: 0

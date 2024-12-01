@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject[] progressBlocks; // Array to hold the progress blocks
-    private float points = 0f; // Track points (0.5 per coin)
+    private float points = 0f; // Track points (0.5 per coin or quiz score)
 
     void Awake()
     {
@@ -29,8 +29,17 @@ public class GameManager : MonoBehaviour
 
     public void CollectCoin()
     {
-        // Add 0.5 points for each coin collected
-        points += 0.5f;
+        AddPoints(0.5f); // Add 0.5 points for each coin collected
+    }
+
+    public void AddQuizPoints(float quizPoints)
+    {
+        AddPoints(quizPoints); // Add quiz points (passed from the QA script)
+    }
+
+    private void AddPoints(float additionalPoints)
+    {
+        points += additionalPoints;
 
         // Calculate the progress block index based on points (only show a block when points are a whole number)
         int blockIndex = Mathf.FloorToInt(points); // Convert points to an integer for block index
@@ -48,12 +57,20 @@ public class GameManager : MonoBehaviour
     }
 }
 
+
+
+
+
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+
 // public class GameManager : MonoBehaviour
 // {
 //     public static GameManager instance;
 
 //     public GameObject[] progressBlocks; // Array to hold the progress blocks
-//     private int coinCount = 0; // Keep track of how many coins have been collected
+//     private float points = 0f; // Track points (0.5 per coin)
 
 //     void Awake()
 //     {
@@ -75,11 +92,21 @@ public class GameManager : MonoBehaviour
 
 //     public void CollectCoin()
 //     {
-//         if (coinCount < progressBlocks.Length)
+//         // Add 0.5 points for each coin collected
+//         points += 0.5f;
+
+//         // Calculate the progress block index based on points (only show a block when points are a whole number)
+//         int blockIndex = Mathf.FloorToInt(points); // Convert points to an integer for block index
+
+//         // Ensure that blockIndex is valid and the corresponding progress block hasn't been activated yet
+//         if (blockIndex >= 0 && blockIndex < progressBlocks.Length)
 //         {
-//             // Activate the next progress block
-//             progressBlocks[coinCount].SetActive(true);
-//             coinCount++; // Increase the coin count
+//             // Ensure this block is activated only when points exactly reach the whole number
+//             if (Mathf.Approximately(points, blockIndex)) // Check if points are exactly a whole number
+//             {
+//                 // Activate the next progress block
+//                 progressBlocks[blockIndex].SetActive(true);
+//             }
 //         }
 //     }
 // }

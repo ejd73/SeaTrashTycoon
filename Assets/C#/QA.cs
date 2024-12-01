@@ -38,8 +38,26 @@ public class QA : MonoBehaviour
     {
         QuizPanel.SetActive(false);
         GOPanel.SetActive(true);
-        sText.text = "Congratulations quiz crusher! You accuracy is: " + score + "/" +totalQ;
+        sText.text = "Congratulations quiz crusher! Your accuracy is: " + score + "/" + totalQ;
+
+    // Calculate points for the quiz
+    // ADD float quizPoints = score * 0.05f; // Each question is worth 0.05 points
+        float quizPoints = 0.5f; // Base points for scoring at least 1 correct answer
+        if (score == totalQ) 
+        {
+            quizPoints = 0.5f; // Max 0.5 points for perfect score (already the base)
+        }
+    
+        // Pass quiz points to the GameManager to update the score bar
+        GameManager.instance.AddQuizPoints(quizPoints);
     }
+
+    // void GameOver()
+    // {
+    //     QuizPanel.SetActive(false);
+    //     GOPanel.SetActive(true);
+    //     sText.text = "Congratulations quiz crusher! You accuracy is: " + score + "/" +totalQ;
+    // }
 
     // Update is called once per frame
     void Update()

@@ -15,6 +15,7 @@ public class DestroyOnClick : MonoBehaviour
     void OnMouseDown()
     {
         // Destroy the object when clicked
+        GameManager.instance.AddQuizPoints(0.05f); // Add 0.1 points to the progress bar
         Debug.Log("Item clicked: " + gameObject.name); // Debug line
         Destroy(gameObject);
 

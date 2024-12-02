@@ -385,7 +385,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ba458c1184541476091009c1abe64a66, type: 3}
-    m_FontSize: 20
+    m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -396,11 +396,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Welcome, environmentalist! \U0001F30E\n\nThe ocean is in peril\u2014an
-    evil industry is pouring trash into the sea, polluting the waters and threatening
-    the creatures that call it home. \n\nBut all hope is not lost. It\u2019s up to
-    you to restore balance by cleaning the beaches and rescuing the residents. Every
-    move you made brings the ocean closer to recovery."
+  m_Text: "Welcome, environmentalist! \U0001F30E\n\nYou have just landed an intern
+    position at SeaTrash Incorporated, an eco-tech company committed to cleaning
+    up the oceans. The oceans are in crisis, clogged with plastic waste and pollutants
+    that are killing marine life. A dangerous rival lurks on the horizon: SodaCo,
+    a mega-corporation with a monopoly on plastic beverage production. SodaCo has
+    been dumping massive amounts of plastic waste into the ocean for years, and despite
+    public outcry, they continue to profit from their environmentally harmful practices.
+    \n\nBut all hope is not lost. It\u2019s up to you to restore balance by cleaning
+    the beaches. Every move you made brings the ocean closer to recovery."
 --- !u!222 &60140093
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Call a method to update the progress bar
-            GameManager.instance.CollectCoin();
+            CoinManager.instance.CollectCoin();
 
             // Destroy the coin after collection
             Destroy(gameObject);

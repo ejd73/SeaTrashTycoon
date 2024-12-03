@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] progressBlocks; // Array to hold the progress blocks
     private float points = 0f; // Track points (0.5 per coin or quiz score)
+    public GameObject coinPopup; // The popup canvas for coins and levels
+    private int totalCoinsCollected = 0; // Track the total number of coins collected
+    private TextMeshProUGUI coinCountText; // To display coin count
+    private TextMeshProUGUI levelCountText; // To display level count (optional, not used yet)
 
     void Awake()
     {
@@ -25,6 +30,15 @@ public class GameManager : MonoBehaviour
         {
             block.SetActive(false);
         }
+        // Find and cache the popup texts using tags
+        coinCountText = GameObject.FindGameObjectWithTag("coinCount").GetComponent<TextMeshProUGUI>();
+        levelCountText = GameObject.FindGameObjectWithTag("levelCount").GetComponent<TextMeshProUGUI>();
+
+        // Hide the popup initially
+        if (coinPopup != null)
+        {
+            coinPopup.SetActive(false);
+        }
     }
 
     public void CollectCoin()
@@ -35,6 +49,8 @@ public class GameManager : MonoBehaviour
     public void AddQuizPoints(float quizPoints)
     {
         AddPoints(quizPoints); // Add quiz points (passed from the QA script)
+        totalCoinsCollected++; // Increment the coin count
+        UpdateCoinPopup(); // Update the popup text
     }
 
     private void AddPoints(float additionalPoints)
@@ -55,6 +71,42 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    public void ToggleCoinPopup()
+    {
+        if (coinPopup != null)
+        {
+            bool isActive = coinPopup.activeSelf; // Check if the popup is currently active
+            coinPopup.SetActive(!isActive); // Toggle its state
+
+            if (!isActive)
+            {
+                UpdateCoinPopup(); // Update the popup text when showing it
+            }
+        }
+    }
+
+    // public void HideCoinPopup()
+    // {
+    //     if (coinPopup != null)
+    //     {
+    //         coinPopup.SetActive(false); // Hide the popup
+    //     }
+    // }
+
+    private void UpdateCoinPopup()
+    {
+        if (coinCountText != null)
+        {
+            coinCountText.text = "" + totalCoinsCollected; // Update coin count
+        }
+
+        // Optionally update levels later
+        //if (levelCountText != null)
+        //{
+            //levelCountText.text = "Level: " + Mathf.FloorToInt(points / 10); // Example level logic
+       //}
+    }
+    
 }
 
 

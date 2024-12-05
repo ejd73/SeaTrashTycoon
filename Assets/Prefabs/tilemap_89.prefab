@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -4682558152076214051}
   - component: {fileID: 8829536925018699315}
   - component: {fileID: -4039798490215803112}
+  - component: {fileID: 1751775980569976187}
   m_Layer: 0
   m_Name: tilemap_89
   m_TagString: Untagged
@@ -157,3 +158,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0fa169887024000a2d67b2f3171152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1751775980569976187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5694649472891410716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc27194669dbda41ab00656168b5ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: sodaCo mug
+  description: 
+  score: 0

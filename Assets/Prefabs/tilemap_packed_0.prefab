@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9159937433910190873}
   - component: {fileID: -56475268333378084}
   - component: {fileID: 3906900030935770311}
+  - component: {fileID: 5957435222233052574}
   m_Layer: 0
   m_Name: tilemap_packed_0
   m_TagString: Untagged
@@ -157,3 +158,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0fa169887024000a2d67b2f3171152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5957435222233052574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8767594761544828709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc27194669dbda41ab00656168b5ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: glass bottle
+  description: 
+  score: 0

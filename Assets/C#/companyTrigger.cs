@@ -14,6 +14,7 @@ public class companyTrigger : MonoBehaviour
      private void OnTriggerEnter2D()
      {
           Debug.Log("We just collided");
+          InventoryManager.Instance.DisplayImpact();
           uiObject.SetActive(true);
      }
 

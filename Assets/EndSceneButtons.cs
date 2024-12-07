@@ -8,13 +8,15 @@ public class EndSceneButtons : MonoBehaviour
     // Method to load the main menu
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("Menu"); // Replace "MainMenu" with the exact name of your main menu scene
+        Debug.Log("Button was clicked!");
+        SceneManager.LoadScene("Menu"); 
     }
 
     // Method to quit the game
     public void QuitGame()
     {
         // Quit the application
+        Debug.Log("Button was clicked!");
         Application.Quit();
 
         // Log to the console for testing in the editor (Optional)

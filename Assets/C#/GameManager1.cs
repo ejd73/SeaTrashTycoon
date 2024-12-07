@@ -13,12 +13,14 @@ public class GameManager1 : MonoBehaviour
     public Scrollbar progressBar;
     public TextMeshProUGUI resetCounterText; // TextMeshProUGUI to display the reset counter
     public TextMeshProUGUI levelTitleText; // TextMeshProUGUI to display the player's level title
+    public TextMeshProUGUI equipmentText; // TextMeshProUGUI to display the equipment being used
     private float points = 0f;
     private int maxProgressBlocks;
     private float maxPoints;
     private int resetCounter = 1;
+    private float pointsPerTrash = 1.0f;
 
-    // Titles to display as the player levels up
+    // Titles and equipment to display as the player levels up
     private string[] levelTitles = {
         "Intern", 
         "Junior Cleaner", 
@@ -28,6 +30,18 @@ public class GameManager1 : MonoBehaviour
         "Environmental Champion", 
         "Eco Warrior"
     };
+
+    private string[] equipmentNames = {
+        "bare hands :(", 
+        "latex gloves", 
+        "net", 
+        "rake", 
+        "trash grabber", 
+        "seasweeper!", 
+        "marine drone"
+    };
+
+    public string endSceneName = "EndScene"; // Set this in the Inspector to match your scene name
 
     void Awake()
     {
@@ -49,14 +63,15 @@ public class GameManager1 : MonoBehaviour
         maxPoints = (float)maxProgressBlocks;
         progressBar.value = 0;
 
-        // Initialize the reset counter display and level title
+        // Initialize the reset counter, level title, and equipment display
         UpdateResetCounterUI();
         UpdateLevelTitle();
+        UpdateEquipmentDisplay();
     }
 
     public void CollectTrash()
     {
-        points += 0.5f;
+        points += pointsPerTrash;
         int blockIndex = Mathf.FloorToInt(points);
 
         if (blockIndex >= 0 && blockIndex < progressBlocks.Length)
@@ -86,10 +101,14 @@ public class GameManager1 : MonoBehaviour
 
         progressBar.value = 0;
 
-        // Increment and display reset counter and level title
+        // Increment reset counter and adjust points per trash
         resetCounter++;
+        pointsPerTrash += 0.5f;
+
+        // Update UI
         UpdateResetCounterUI();
         UpdateLevelTitle();
+        UpdateEquipmentDisplay();
     }
 
     void UpdateResetCounterUI()
@@ -100,7 +119,6 @@ public class GameManager1 : MonoBehaviour
         }
     }
 
-public string endSceneName = "EndScene"; // Set this in the Inspector to match your scene name
     void UpdateLevelTitle()
     {
         // Calculate the player's level based on the resetCounter
@@ -114,18 +132,23 @@ public string endSceneName = "EndScene"; // Set this in the Inspector to match y
         if (resetCounter >= 7) 
         {
             Debug.Log("Game should end now!");
-            // Call method to end the game
             EndGame();
         }
     }
 
-    
+    void UpdateEquipmentDisplay()
+    {
+        // Calculate the equipment index based on the resetCounter
+        int equipmentIndex = Mathf.Min(resetCounter - 1, equipmentNames.Length - 1); // Ensure it doesn't exceed the array bounds
+        if (equipmentText != null)
+        {
+            equipmentText.text = $"Using: {equipmentNames[equipmentIndex]}";
+        }
+    }
 
     void EndGame()
     {
         Debug.Log($"Attempting to load scene: {endSceneName}");
         SceneManager.LoadScene(endSceneName);
     }
-
-
 }

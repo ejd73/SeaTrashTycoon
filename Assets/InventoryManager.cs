@@ -71,7 +71,7 @@ public void DisplayInventory()
 }
 
     // Method to display environmental impact in a separate TMP_Text
-    public void DisplayImpact()
+    public string DisplayImpact()
     {
 
         Debug.Log("DisplayImpact called."); 
@@ -127,5 +127,7 @@ public void DisplayInventory()
         {
             Debug.LogWarning("ImpactText TMP object is not assigned.");
         }
+
+        return impactDisplay;
     }
 }

@@ -3228,19 +3228,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QnA:
-  - Question: What is your name?
+  - Question: Which marine animal is at risk of entanglement in abandoned fishing
+      gear?What is your name?
     Answers:
-    - Erin
-    - Chia
-    - Jake
-    - Song
+    - Dolphins
+    - Sea turtles
+    - Seals
+    - All of the above
     CorrectAnswer: 4
-  - Question: What day is it today?
+  - Question: What percentage of plastic produced globally has ever been recycled?
     Answers:
-    - Monday
-    - Tuesday
-    - Wednesday
-    - Thursday
+    - 9%
+    - 25%
+    - 40%
+    - 50%
     CorrectAnswer: 1
   - Question: What's the name of this game?
     Answers:
@@ -3301,6 +3302,79 @@ MonoBehaviour:
     - An underwater volcano where plastic melts
     - A fishing area known for capturing plastic waste
     CorrectAnswer: 2
+  - Question: How does ocean acidification, caused by excess CO2, indirectly worsen
+      plastic pollution?
+    Answers:
+    - It prevents recycling efforts
+    - It makes plastics harder to decompose
+    - It has no connection to plastic pollution
+    - It weakens coral reefs, reducing their ability to trap debris
+    CorrectAnswer: 4
+  - Question: What is the Great Pacific Garbage Patch?
+    Answers:
+    - A coral reef full of plastic
+    - A region of the ocean with concentrated floating plastic debris
+    - An underwater volcano where plastic melts
+    - A fishing area known for capturing plastic waste
+    CorrectAnswer: 2
+  - Question: Which international agreement focuses on reducing marine pollution
+      from ships?
+    Answers:
+    - 'The Paris Agreement '
+    - MARPOL
+    - The Kyoto Protocol
+    - The Clean Oceans Pact
+    CorrectAnswer: 2
+  - Question: What harmful chemicals are commonly found leaching from plastics into
+      ocean water?
+    Answers:
+    - BPA and phthalates
+    - Chlorine and sulfur
+    - Sodium and potassium
+    - None, plastics are inert
+    CorrectAnswer: 1
+  - Question: Which ocean has the largest concentration of plastic pollution?
+    Answers:
+    - Atlantic Ocean
+    - Indian Ocean
+    - Pacific Ocean
+    - Arctic Ocean
+    CorrectAnswer: 3
+  - Question: What is "ghost fishing"?
+    Answers:
+    - Illegal fishing practices at night
+    - Abandoned fishing gear continuing to catch marine life
+    - Fishing in marine reserves without detection
+    - A method of fishing with sonar
+    CorrectAnswer: 2
+  - Question: Which of these common items takes the longest to decompose in the ocean?
+    Answers:
+    - Paper straw
+    - Aluminum can
+    - Glass bottle
+    - Fishing line
+    CorrectAnswer: 4
+  - Question: What is the purpose of Marine Protected Areas (MPAs)?
+    Answers:
+    - To ban all human activity in oceans
+    - To preserve biodiversity and protect marine ecosystems
+    - To restrict fishing to small-scale operations only
+    - To collect ocean data for research
+    CorrectAnswer: 2
+  - Question: Which of these contributes the most plastic waste to the ocean?
+    Answers:
+    - Cargo ship spills
+    - Runoff from urban areas
+    - Rivers carrying waste from inland areas
+    - Beachgoers leaving trash behind
+    CorrectAnswer: 3
+  - Question: How do microplastics enter the human food chain?
+    Answers:
+    - Through drinking water
+    - By eating seafood contaminated with microplastics
+    - By breathing in airborne microplastic particles
+    - All of the above
+    CorrectAnswer: 4
   options:
   - {fileID: 2127624304}
   - {fileID: 1550867170}

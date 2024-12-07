@@ -11,6 +11,8 @@ public class QA : MonoBehaviour
     public List<QuestionsAnswers> QnA;
     public GameObject[] options;
     public int currentQuestion;
+    //public GameObject rightSign;
+    //public GameObject wrongSign;
 
     public GameObject QuizPanel;
     public GameObject GOPanel;
@@ -68,12 +70,18 @@ public class QA : MonoBehaviour
     public void correct()
     {
         score += 1;
+        //rightSign.SetActive(true);
+        //yield return new WaitForSeconds(2);
+        //rightSign.SetActive(false);
         QnA.RemoveAt(currentQuestion);
         generateQuestion();
     }
 
     public void wrong()
     {
+       // wrongSign.SetActive(true);
+        //yield return new WaitForSeconds(2);
+        //wrongSign.SetActive(false);
         QnA.RemoveAt(currentQuestion);
         generateQuestion();
 

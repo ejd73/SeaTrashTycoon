@@ -53,28 +53,16 @@ public class CoinManager : MonoBehaviour
             }
         }
     }
+    
+    // Method to award coins based on the quiz score
+    public void AwardQuizCoins(int score, int totalQuestions)
+    {
+        int awardedCoins = Mathf.FloorToInt(score / 2f); // Calculate coins based on half the correct answers
+        coinCount += awardedCoins; // Add awarded coins to the total count
+        UpdateCoinPopup(); // Update the popup or UI if needed
+        Debug.Log($"Awarded {awardedCoins} coins for quiz performance! Total coins: {coinCount}");
+    }
 
-    // public void ShowCoinPopup()
-    // {
-    //     if (coinPopup != null)
-    //     {
-    //         coinPopup.SetActive(true); // Show the popup
-
-    //         if (coinCountText != null)
-    //         {
-    //             coinCountText.text = "Coins: " + coinCount; // Update the coin count text
-    //         }
-    //     }
-    // }
-
-    // // Optional: Method to hide the popup
-    // public void HideCoinPopup()
-    // {
-    //     if (coinPopup != null)
-    //     {
-    //         coinPopup.SetActive(false); // Hide the popup
-    //     }
-    // }
 
     private void UpdateCoinPopup()
     {

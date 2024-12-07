@@ -6,6 +6,10 @@ TagManager:
   tags:
   - coin
   - randomfish
+  - levelCount
+  - coinCount
+  - fact
+  - remind
   layers:
   - Default
   - TransparentFX

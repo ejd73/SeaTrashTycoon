@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 public class QA : MonoBehaviour
 {
     public List<QuestionsAnswers> QnA;
+    private List<QuestionsAnswers> originalQnA; // Backup for the original question list
+
     public GameObject[] options;
     public int currentQuestion;
     //public GameObject rightSign;
@@ -31,9 +33,22 @@ public class QA : MonoBehaviour
         generateQuestion();
     }
 
+    // public void reset()
+    // {
+    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    // }
     public void reset()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // Reset score and UI
+        score = 0;
+        GOPanel.SetActive(false); // Hide the game over panel
+        QuizPanel.SetActive(true); // Show the quiz panel
+
+        // Restore the original question list
+        QnA = new List<QuestionsAnswers>(originalQnA);
+
+        // Start from the first question
+        generateQuestion();
     }
 
     void GameOver()
@@ -41,17 +56,9 @@ public class QA : MonoBehaviour
         QuizPanel.SetActive(false);
         GOPanel.SetActive(true);
         sText.text = "Congratulations quiz crusher! Your accuracy is: " + score + "/" + totalQ;
-
-    // Calculate points for the quiz
-    // ADD float quizPoints = score * 0.05f; // Each question is worth 0.05 points
-        float quizPoints = 0.5f; // Base points for scoring at least 1 correct answer
-        if (score == totalQ) 
-        {
-            quizPoints = 0.5f; // Max 0.5 points for perfect score (already the base)
-        }
     
-        // Pass quiz points to the GameManager to update the score bar
-        GameManager.instance.AddQuizPoints(quizPoints);
+        // Pass quiz points to the CoinManager to update the coins 
+        CoinManager.instance.AwardQuizCoins(score, totalQ);    
     }
 
     // void GameOver()

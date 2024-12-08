@@ -8,8 +8,8 @@ public class CoinSpawn : MonoBehaviour
 
     public GameObject coinPrefab; // Prefab for the coin object
     public List<Vector3> originalCoinPositions; // Store the original positions of the coins
-    public float spawnRadius = 2f; // Maximum distance to spawn coins from their original positions
-    public float spawnInterval = 50f; // Interval for spawning new coins
+    public float spawnRadius = 1.5f; // Maximum distance to spawn coins from their original positions
+    public float spawnInterval = 100f; // Interval for spawning new coins
 
     private void Awake()
     {

@@ -3443,8 +3443,8 @@ MonoBehaviour:
   - {x: 0.35, y: 0.17, z: 0}
   - {x: 0.22, y: 6.7, z: 0}
   - {x: 4.72, y: 2.12, z: 0}
-  spawnRadius: 2
-  spawnInterval: 50
+  spawnRadius: 1.5
+  spawnInterval: 100
 --- !u!4 &395908287
 Transform:
   m_ObjectHideFlags: 0

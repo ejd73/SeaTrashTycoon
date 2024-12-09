@@ -14,6 +14,10 @@ public class GameManager1 : MonoBehaviour
     public TextMeshProUGUI resetCounterText; // TextMeshProUGUI to display the reset counter
     public TextMeshProUGUI levelTitleText; // TextMeshProUGUI to display the player's level title
     public TextMeshProUGUI equipmentText; // TextMeshProUGUI to display the equipment being used
+
+    public AudioClip pickupSound;          // The sound to play when a trash item is picked up
+    private AudioSource audioSource;       // AudioSource component to play the sound
+
     private float points = 0f;
     private int maxProgressBlocks;
     private float maxPoints;
@@ -54,6 +58,13 @@ public class GameManager1 : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // Add an AudioSource component if one doesn't exist
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
         foreach (GameObject block in progressBlocks)
         {
             block.SetActive(false);
@@ -83,6 +94,12 @@ public class GameManager1 : MonoBehaviour
         }
 
         progressBar.value = points / maxPoints;
+
+        // Play the pickup sound each time trash is collected
+        if (audioSource && pickupSound)
+        {
+            audioSource.PlayOneShot(pickupSound); // Play the sound
+        }
 
         if (blockIndex >= progressBlocks.Length)
         {
